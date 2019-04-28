@@ -15,15 +15,10 @@ void main(int argc, char* argv[]){
   strcpy(input_image, argv[1]);
   npix = atoi(argv[3]);
   nscan = atoi(argv[2]);
-  // sprintf(output_image, "%s_out", input_image);
   
   fp1 = open(input_image, O_RDONLY);
   if(fp1 < 0)
     printf("Error opening image...\n");
-
-  //fp2 = creat(output_image, 0667);
-  //if(fp2 < 0)
-  //  printf("Error creating output image...\n");
 
   unsigned char image[nscan][npix];
   read(fp1, &image[0][0], nscan*npix*sizeof(unsigned char));
